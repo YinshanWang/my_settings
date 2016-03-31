@@ -1,0 +1,92 @@
+
+# Setting PATH for Python 2.7
+# The orginal version is saved in .bash_profile.pysave
+PATH="/Library/Frameworks/Python.framework/Versions/2.7/bin:${PATH}"
+export PATH
+
+# Setting PATH for Python 2.7
+# The orginal version is saved in .bash_profile.pysave
+PATH="/Library/Frameworks/Python.framework/Versions/2.7/bin:${PATH}"
+export PATH
+
+# Added by Canopy installer on 2015-10-19
+# VIRTUAL_ENV_DISABLE_PROMPT can be set to '' to make bashprompt show that Canopy is active, otherwise 1
+VIRTUAL_ENV_DISABLE_PROMPT=1 source '/Users/wyslfcd/Library/Enthought/Canopy_64bit/User/bin/activate'
+
+#Settomg PATH for FreeSurfer
+PATH="/lfcd_app/freesurfer/:${PATH}"
+export FREESURFER_HOME=/lfcd_app/freesurfer
+source $FREESURFER_HOME/SetUpFreeSurfer.sh
+
+PATH="/lfcd_app/mricron:${PATH}"
+export PATH
+
+FSLDIR=/lfcd_app/fsl
+. ${FSLDIR}/etc/fslconf/fsl.sh
+PATH=${FSLDIR}/bin:${PATH}
+export FSLDIR PATH
+
+PATH=/lfcd_app/afni:${PATH}
+export PATH
+
+#Setting PATH for MATLAB
+export PATH=/Applications/MATLAB_R2014b.app/bin:$PATH
+
+if [ -z "$DISPLAY" -a "X$TERM_PROGRAM" = "XApple_Terminal" ]; then
+  X11_FOLDER=/tmp/.X11-unix
+  currentUser=`id -u`
+  userX11folder=`find $X11_FOLDER -name 'X*' -user $currentUser -print 2>&1 | tail -n 1`
+  if [ -n "$userX11folder" ]; then
+    displaynumber=`basename ${userX11folder} | grep -o '[[:digit:]]\+'`
+    if [ -n "$displaynumber" ]; then
+      DISPLAY=localhost:${displaynumber}
+      export DISPLAY
+    else
+      echo "Warning: DISPLAY not configured as X11 is not running"
+    fi
+  else
+    echo "Warning: DISPLAY not configured as X11 is not running"
+  fi
+fi
+
+
+##
+# Your previous /Users/wyslfcd/.bash_profile file was backed up as /Users/wyslfcd/.bash_profile.macports-saved_2015-12-26_at_09:33:01
+##
+
+# MacPorts Installer addition on 2015-12-26_at_09:33:01: adding an appropriate PATH variable for use with MacPorts.
+export PATH="/opt/local/bin:/opt/local/sbin:$PATH"
+# Finished adapting your PATH environment variable for use with MacPorts.
+
+alias ls='ls -hG'
+alias lt='ls -ltrhG'
+alias rm='rm -i'
+alias mv='mv -i'
+alias mkdir='mkdir -p'
+alias doc='cd ~/Documents'
+alias downloads='cd ~/Downloads'
+alias desktop='cd ~/Desktop'
+alias prepro='cd ~/Documents/scripts/datareorganization/my\ scripts/'
+
+#set the default lang to English :)
+export LANG=en_US.UTF-8
+export LC_ALL=en_US.UTF-8
+
+#set the C3D Path
+export PATH=/lfcd_app/c3d/C3D/bin:$PATH
+
+#set ANTS
+export ANTSPATH=/opt/ants/bin
+export PATH=/opt/ants/bin:$PATH
+
+# added by Anaconda3 2.5.0 installer
+export PATH="/Users/wyslfcd/anaconda3/bin:$PATH"
+
+# added by Anaconda3 2.5.0 installer
+export PATH="/Users/wyslfcd/Applications/anacoda3/bin:$PATH"
+
+# added by Anaconda2 2.5.0 installer
+export PATH="/Users/wyslfcd/anaconda/bin:$PATH"
+
+# added by Anaconda2 2.5.0 installer
+export PATH="//anaconda/bin:$PATH"
